@@ -1,0 +1,61 @@
+{
+  "catalog": "HEX API",
+  "verifiedOn": "2026-11-21",
+  "liveCatalog": "https://hexapi.io/models",
+  "pricing": "https://hexapi.io/pricing",
+  "status": "https://hexapi.io/status",
+  "models": [
+    {
+      "id": "glm-5.3-abliterated",
+      "family": "GLM",
+      "variant": "Abliterated",
+      "guide": "https://github.com/hexapi-io/glm-5.3-abliterated"
+    },
+    {
+      "id": "glm-5.3-flash-abliterated",
+      "family": "GLM",
+      "variant": "Abliterated"
+    },
+    {
+      "id": "glm-5.3-uncensored",
+      "family": "GLM",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "glm-5.3-flash-uncensored",
+      "family": "GLM",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "deepseek-v4-pro-uncensored",
+      "family": "DeepSeek",
+      "variant": "Uncensored",
+      "guide": "https://github.com/hexapi-io/deepseek-v4-pro-uncensored"
+    },
+    {
+      "id": "deepseek-v4-pro-abliterated",
+      "family": "DeepSeek",
+      "variant": "Abliterated"
+    },
+    {
+      "id": "deepseek-v4.1-flash-1017-abliterated",
+      "family": "DeepSeek",
+      "variant": "Abliterated"
+    },
+    {
+      "id": "deepseek-v4.1-flash-1017-uncensored",
+      "family": "DeepSeek",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "kimi-k3.1-pro-uncensored",
+      "family": "Kimi",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "qwen3.8-max-uncensored",
+      "family": "Qwen",
+      "variant": "Uncensored"
+    }
+  ]
+}
