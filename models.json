@@ -1,61 +1,249 @@
 {
   "catalog": "HEX API",
-  "verifiedOn": "2026-11-21",
+  "source": "https://hexapi.io/api/models",
   "liveCatalog": "https://hexapi.io/models",
   "pricing": "https://hexapi.io/pricing",
   "status": "https://hexapi.io/status",
   "models": [
     {
-      "id": "glm-5.3-abliterated",
-      "family": "GLM",
-      "variant": "Abliterated",
-      "guide": "https://github.com/hexapi-io/glm-5.3-abliterated"
+      "id": "claude-fable-5-1",
+      "name": "Claude Fable 5.1",
+      "family": "Claude",
+      "variant": "Standard"
     },
     {
-      "id": "glm-5.3-flash-abliterated",
-      "family": "GLM",
-      "variant": "Abliterated"
+      "id": "claude-fable-5-2",
+      "name": "Claude Fable 5.2",
+      "family": "Claude",
+      "variant": "Standard"
     },
     {
-      "id": "glm-5.3-uncensored",
-      "family": "GLM",
-      "variant": "Uncensored"
+      "id": "claude-haiku-5-5",
+      "name": "Claude Haiku 5.5",
+      "family": "Claude",
+      "variant": "Standard"
     },
     {
-      "id": "glm-5.3-flash-uncensored",
-      "family": "GLM",
-      "variant": "Uncensored"
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "family": "Claude",
+      "variant": "Standard"
     },
     {
-      "id": "deepseek-v4-pro-uncensored",
+      "id": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "family": "Claude",
+      "variant": "Standard"
+    },
+    {
+      "id": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "family": "Claude",
+      "variant": "Standard"
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "name": "Claude Sonnet 5.5",
+      "family": "Claude",
+      "variant": "Standard"
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
       "family": "DeepSeek",
-      "variant": "Uncensored",
-      "guide": "https://github.com/hexapi-io/deepseek-v4-pro-uncensored"
+      "variant": "Standard"
     },
     {
       "id": "deepseek-v4-pro-abliterated",
+      "name": "DeepSeek V4 Pro Abliterated",
       "family": "DeepSeek",
       "variant": "Abliterated"
     },
     {
+      "id": "deepseek-v4-pro-uncensored",
+      "name": "DeepSeek V4 Pro Uncensored",
+      "family": "DeepSeek",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "family": "DeepSeek",
+      "variant": "Standard"
+    },
+    {
+      "id": "deepseek-v4.1-flash-1017",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "family": "DeepSeek",
+      "variant": "Standard"
+    },
+    {
       "id": "deepseek-v4.1-flash-1017-abliterated",
+      "name": "DeepSeek V4.1 Flash 1017 Abliterated",
       "family": "DeepSeek",
       "variant": "Abliterated"
     },
     {
       "id": "deepseek-v4.1-flash-1017-uncensored",
+      "name": "DeepSeek V4.1 Flash 1017 Uncensored",
       "family": "DeepSeek",
       "variant": "Uncensored"
     },
     {
+      "id": "deepseek-v4.1-flash-abliterated",
+      "name": "DeepSeek V4.1 Flash Abliterated",
+      "family": "DeepSeek",
+      "variant": "Abliterated"
+    },
+    {
+      "id": "deepseek-v4.1-flash-uncensored",
+      "name": "DeepSeek V4.1 Flash Uncensored",
+      "family": "DeepSeek",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "family": "Gemini",
+      "variant": "Standard"
+    },
+    {
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "family": "Gemini",
+      "variant": "Standard"
+    },
+    {
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "family": "Gemini",
+      "variant": "Standard"
+    },
+    {
+      "id": "glm-5.3",
+      "name": "GLM 5.3",
+      "family": "GLM",
+      "variant": "Standard"
+    },
+    {
+      "id": "glm-5.3-abliterated",
+      "name": "GLM 5.3 Abliterated",
+      "family": "GLM",
+      "variant": "Abliterated"
+    },
+    {
+      "id": "glm-5.3-flash",
+      "name": "GLM 5.3 Flash",
+      "family": "GLM",
+      "variant": "Standard"
+    },
+    {
+      "id": "glm-5.3-flash-abliterated",
+      "name": "GLM 5.3 Flash Abliterated",
+      "family": "GLM",
+      "variant": "Abliterated"
+    },
+    {
+      "id": "glm-5.3-flash-uncensored",
+      "name": "GLM 5.3 Flash Uncensored",
+      "family": "GLM",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "glm-5.3-uncensored",
+      "name": "GLM 5.3 Uncensored",
+      "family": "GLM",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "family": "GPT",
+      "variant": "Standard"
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "name": "GPT-5.6 Terra",
+      "family": "GPT",
+      "variant": "Standard"
+    },
+    {
+      "id": "gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "family": "GPT",
+      "variant": "Standard"
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "family": "GPT",
+      "variant": "Standard"
+    },
+    {
+      "id": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "family": "GPT",
+      "variant": "Standard"
+    },
+    {
+      "id": "gpt-6.2-astra",
+      "name": "GPT-6.2 Astra",
+      "family": "GPT",
+      "variant": "Standard"
+    },
+    {
+      "id": "gpt-6.2-sol",
+      "name": "GPT-6.2 Sol",
+      "family": "GPT",
+      "variant": "Standard"
+    },
+    {
+      "id": "grok-4.5",
+      "name": "Grok 4.5",
+      "family": "Grok",
+      "variant": "Standard"
+    },
+    {
+      "id": "grok-4.6",
+      "name": "Grok 4.6",
+      "family": "Grok",
+      "variant": "Standard"
+    },
+    {
+      "id": "grok-4.7",
+      "name": "Grok 4.7",
+      "family": "Grok",
+      "variant": "Standard"
+    },
+    {
+      "id": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "family": "Kimi",
+      "variant": "Standard"
+    },
+    {
       "id": "kimi-k3.1-pro-uncensored",
+      "name": "Kimi K3.1 Pro Uncensored",
       "family": "Kimi",
       "variant": "Uncensored"
     },
     {
+      "id": "qwen3.8-max",
+      "name": "Qwen 3.8 Max",
+      "family": "Qwen",
+      "variant": "Standard"
+    },
+    {
       "id": "qwen3.8-max-uncensored",
+      "name": "Qwen 3.8 Max Uncensored",
       "family": "Qwen",
       "variant": "Uncensored"
+    },
+    {
+      "id": "qwen4-max",
+      "name": "Qwen4 Max",
+      "family": "Qwen",
+      "variant": "Standard"
     }
   ]
 }

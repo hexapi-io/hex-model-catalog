@@ -2,47 +2,31 @@
 
 # HEX Model Catalog
 
-Find the exact model ID to use with HEX. This directory covers selected uncensored and abliterated variants listed in the live catalog on **November 21, 2026**. Use the live catalog and status page to check availability before running a workload.
+Browse every model currently available through the HEX AI API. Use the exact model ID with your HEX key, then check pricing and service status before you run a workload.
 
-[Live model catalog](https://hexapi.io/models) · [Token pricing](https://hexapi.io/pricing) · [Service status](https://hexapi.io/status) · [Machine-readable model IDs](models.json)
+[Active model index](MODEL-INDEX.md) · [Machine-readable model IDs](models.json) · [Live model catalog](https://hexapi.io/models) · [Live pricing](https://hexapi.io/pricing) · [Service status](https://hexapi.io/status)
 
-## Choose a starting point
+## AI jailbreak, uncensored, and abliterated models
 
-| Task | Start with | Example |
-| --- | --- | --- |
-| Turn a bug report into a structured engineering ticket | GLM 5.3 Abliterated | [Python walkthrough](https://github.com/hexapi-io/glm-5.3-abliterated) |
-| Stream a release checklist from change notes | DeepSeek V4 Pro Uncensored | [Node.js streaming walkthrough](https://github.com/hexapi-io/deepseek-v4-pro-uncensored) |
-| Try a model before integrating it | HEX web workspace | [Open HEX in your browser](https://hexapi.io/app/chat) |
+Looking up terms such as **AI jailbreak**, **LLM jailbreak**, or **abliterated model**? The [model variants guide](JAILBREAK-AND-MODEL-VARIANTS.md) explains how prompt behavior, prompt injection, and model variants relate to the IDs you can select on HEX.
 
-## Model IDs
+## Start with an integration
 
-### GLM
+| Task | Guide |
+| --- | --- |
+| Send an OpenAI-compatible chat completion | [HEX API Quickstart](https://github.com/hexapi-io/hex-api-quickstart) |
+| Turn a bug report into a JSON ticket | [GLM 5.3 Abliterated API guide](https://github.com/hexapi-io/glm-5.3-abliterated) |
+| Stream a release checklist in Node.js | [DeepSeek V4 Pro Uncensored API guide](https://github.com/hexapi-io/deepseek-v4-pro-uncensored) |
+| Work in a local project | [HEX for OpenCode Desktop](https://github.com/hexapi-io/hex-opencode-setup) |
 
-| API model ID | Variant | Guide |
-| --- | --- | --- |
-| `glm-5.3-abliterated` | Abliterated | [Examples](https://github.com/hexapi-io/glm-5.3-abliterated) |
-| `glm-5.3-flash-abliterated` | Abliterated | [Live catalog](https://hexapi.io/models) |
-| `glm-5.3-uncensored` | Uncensored | [Live catalog](https://hexapi.io/models) |
-| `glm-5.3-flash-uncensored` | Uncensored | [Live catalog](https://hexapi.io/models) |
+## Catalog and reference
 
-### DeepSeek
+- [API formats and model availability](API-FORMATS.md)
+- [Model behavior evaluation](MODEL-EVALUATION.md)
+- [Catalog updates](CHANGELOG.md)
+- [Contributing corrections](CONTRIBUTING.md)
+- [Security reports](SECURITY.md)
 
-| API model ID | Variant | Guide |
-| --- | --- | --- |
-| `deepseek-v4-pro-uncensored` | Uncensored | [Examples](https://github.com/hexapi-io/deepseek-v4-pro-uncensored) |
-| `deepseek-v4-pro-abliterated` | Abliterated | [Live catalog](https://hexapi.io/models) |
-| `deepseek-v4.1-flash-1017-abliterated` | Abliterated | [Live catalog](https://hexapi.io/models) |
-| `deepseek-v4.1-flash-1017-uncensored` | Uncensored | [Live catalog](https://hexapi.io/models) |
+Run `node sync-models.mjs` with Node.js 22 or later to refresh the model index and JSON from the public HEX catalog. The live catalog reflects later changes to availability.
 
-### Kimi and Qwen
-
-| API model ID | Variant | Guide |
-| --- | --- | --- |
-| `kimi-k3.1-pro-uncensored` | Uncensored | [Live catalog](https://hexapi.io/models) |
-| `qwen3.8-max-uncensored` | Uncensored | [Live catalog](https://hexapi.io/models) |
-
-## Connect your tools
-
-Use `https://api.hexapi.io/v1` as the base URL and set your HEX API key as a bearer token. The authenticated `GET /v1/models` endpoint shows IDs visible to your account. To make the first request, use the [API quickstart](https://github.com/hexapi-io/hex-api-quickstart) or connect [OpenCode Desktop](https://github.com/hexapi-io/hex-opencode-setup).
-
-The variant labels identify separate API models. Check capabilities and output on a small sample from your own workload when comparing them. Model names belong to their respective owners.
+Model names belong to their respective owners.
