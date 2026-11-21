@@ -1,0 +1,317 @@
+{
+  "claude-fable-5-1": {
+    "format": "messages",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 8192
+  },
+  "claude-fable-5-2": {
+    "format": "messages",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 128000
+  },
+  "claude-haiku-5-5": {
+    "format": "messages",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 64000
+  },
+  "claude-opus-5": {
+    "format": "messages",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 64000
+  },
+  "claude-opus-5-5": {
+    "format": "messages",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 128000
+  },
+  "claude-sonnet-5": {
+    "format": "messages",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 64000
+  },
+  "claude-sonnet-5-5": {
+    "format": "messages",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 64000
+  },
+  "deepseek-v4-pro": {
+    "format": "chat",
+    "vision": false,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 128000
+  },
+  "deepseek-v4-pro-abliterated": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 8192
+  },
+  "deepseek-v4-pro-uncensored": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 65536
+  },
+  "deepseek-v4.1-flash": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 65536
+  },
+  "deepseek-v4.1-flash-1017": {
+    "format": "chat",
+    "vision": false,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 65536
+  },
+  "deepseek-v4.1-flash-1017-abliterated": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 65536
+  },
+  "deepseek-v4.1-flash-1017-uncensored": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 8192
+  },
+  "deepseek-v4.1-flash-abliterated": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 8192
+  },
+  "deepseek-v4.1-flash-uncensored": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 8192
+  },
+  "gemini-4-argon": {
+    "format": "chat",
+    "vision": false,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 16384
+  },
+  "gemini-4-carbon": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 65536
+  },
+  "gemini-4-hydrogen": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 65536
+  },
+  "glm-5.3": {
+    "format": "chat",
+    "vision": false,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 65536
+  },
+  "glm-5.3-abliterated": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 128000
+  },
+  "glm-5.3-flash": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 65536
+  },
+  "glm-5.3-flash-abliterated": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 8192
+  },
+  "glm-5.3-flash-uncensored": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 65536
+  },
+  "glm-5.3-uncensored": {
+    "format": "chat",
+    "vision": false,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 65536
+  },
+  "gpt-5.6-sol": {
+    "format": "responses",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 128000
+  },
+  "gpt-5.6-terra": {
+    "format": "responses",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 128000
+  },
+  "gpt-6-astra": {
+    "format": "responses",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 128000
+  },
+  "gpt-6.1-sol": {
+    "format": "responses",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 128000
+  },
+  "gpt-6.1-terra": {
+    "format": "responses"
+  },
+  "gpt-6.2-astra": {
+    "format": "responses",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 128000
+  },
+  "gpt-6.2-sol": {
+    "format": "responses",
+    "vision": true,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 128000
+  },
+  "grok-4.5": {
+    "format": "chat",
+    "vision": true,
+    "tools": false,
+    "reasoning": false,
+    "context": 200000,
+    "output": 64000
+  },
+  "grok-4.6": {
+    "format": "chat",
+    "vision": true,
+    "tools": false,
+    "reasoning": false,
+    "context": 500000,
+    "output": 65536
+  },
+  "grok-4.7": {
+    "format": "chat",
+    "vision": true,
+    "tools": false,
+    "reasoning": false,
+    "context": 500000,
+    "output": 65536
+  },
+  "kimi-k3.1-pro": {
+    "format": "chat",
+    "vision": false,
+    "tools": true,
+    "reasoning": true,
+    "context": 1000000,
+    "output": 32000
+  },
+  "kimi-k3.1-pro-uncensored": {
+    "format": "chat",
+    "vision": false,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 8192
+  },
+  "qwen3.8-max": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 128000
+  },
+  "qwen3.8-max-uncensored": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 8192
+  },
+  "qwen4-max": {
+    "format": "chat",
+    "vision": true,
+    "tools": true,
+    "reasoning": false,
+    "context": 1000000,
+    "output": 128000
+  }
+}

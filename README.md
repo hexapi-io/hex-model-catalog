@@ -4,29 +4,34 @@
 
 Browse every model currently available through the HEX AI API. Use the exact model ID with your HEX key, then check pricing and service status before you run a workload.
 
-[Active model index](MODEL-INDEX.md) · [Machine-readable model IDs](models.json) · [Live model catalog](https://hexapi.io/models) · [Live pricing](https://hexapi.io/pricing) · [Service status](https://hexapi.io/status)
+[Uncensored and abliterated models](UNCENSORED-MODELS.md) · [All active models](MODEL-INDEX.md) · [Machine-readable catalog](models.json) · [Live pricing](https://hexapi.io/pricing) · [Service status](https://hexapi.io/status)
 
 ## AI jailbreak, uncensored, and abliterated models
 
-Looking up terms such as **AI jailbreak**, **LLM jailbreak**, or **abliterated model**? The [model variants guide](JAILBREAK-AND-MODEL-VARIANTS.md) explains how prompt behavior, prompt injection, and model variants relate to the IDs you can select on HEX.
+Browse the [Uncensored and Abliterated lineup](UNCENSORED-MODELS.md) to compare available HEX model IDs across GLM, DeepSeek, Kimi, and Qwen. The [model variants guide](JAILBREAK-AND-MODEL-VARIANTS.md) explains **AI jailbreak**, **LLM jailbreak**, prompt injection, and why model labels describe variants with different behavior.
 
 ## Start with an integration
 
 | Task | Guide |
 | --- | --- |
 | Send an OpenAI-compatible chat completion | [HEX API Quickstart](https://github.com/hexapi-io/hex-api-quickstart) |
+| Use GPT with Responses | [GPT models guide](GPT-GUIDE.md) |
+| Use Claude with Messages | [Claude models guide](CLAUDE-GUIDE.md) |
 | Turn a bug report into a JSON ticket | [GLM 5.3 Abliterated API guide](https://github.com/hexapi-io/glm-5.3-abliterated) |
 | Stream a release checklist in Node.js | [DeepSeek V4 Pro Uncensored API guide](https://github.com/hexapi-io/deepseek-v4-pro-uncensored) |
 | Work in a local project | [HEX for OpenCode Desktop](https://github.com/hexapi-io/hex-opencode-setup) |
+| Set up other coding tools | [SDK and IDE integration guides](INTEGRATIONS.md) |
 
 ## Catalog and reference
 
 - [API formats and model availability](API-FORMATS.md)
+- [Usage, token pricing, and troubleshooting](BILLING-AND-TROUBLESHOOTING.md)
 - [Model behavior evaluation](MODEL-EVALUATION.md)
+- [Text index of HEX resources](llms.txt)
 - [Catalog updates](CHANGELOG.md)
 - [Contributing corrections](CONTRIBUTING.md)
 - [Security reports](SECURITY.md)
 
-Run `node sync-models.mjs` with Node.js 22 or later to refresh the model index and JSON from the public HEX catalog. The live catalog reflects later changes to availability.
+Run `node sync-models.mjs` with Node.js 22 or later to regenerate the index, the Uncensored and Abliterated list, the JSON snapshot, and individual model pages. The **Model catalog** workflow checks the live catalog daily and opens or updates a draft pull request when the generated files change. See [Contributing](CONTRIBUTING.md) for checks and capability updates.
 
 Model names belong to their respective owners.

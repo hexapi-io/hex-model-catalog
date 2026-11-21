@@ -1,0 +1,18 @@
+# HEX API
+
+> Hosted AI model APIs for developers, including named Uncensored and Abliterated variants.
+
+## Model discovery
+- [Live HEX model catalog](https://hexapi.io/models)
+- [Active model pages](https://github.com/hexapi-io/hex-model-catalog/blob/main/MODEL-INDEX.md)
+- [Uncensored and abliterated models](https://github.com/hexapi-io/hex-model-catalog/blob/main/UNCENSORED-MODELS.md)
+- [Structured catalog snapshot](https://raw.githubusercontent.com/hexapi-io/hex-model-catalog/main/models.json)
+- [AI jailbreak and model variant terminology](https://github.com/hexapi-io/hex-model-catalog/blob/main/JAILBREAK-AND-MODEL-VARIANTS.md)
+
+## Integration
+- [HEX API reference](https://hexapi.io/docs)
+- [GPT Responses guide](https://github.com/hexapi-io/hex-model-catalog/blob/main/GPT-GUIDE.md)
+- [Claude Messages guide](https://github.com/hexapi-io/hex-model-catalog/blob/main/CLAUDE-GUIDE.md)
+- [OpenCode Desktop setup](https://hexapi.io/setup/opencode)
+- [Live pricing](https://hexapi.io/pricing)
+- [Service status](https://hexapi.io/status)
