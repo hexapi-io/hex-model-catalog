@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
-import { buildSnapshot, renderFiles } from "./sync-models.mjs";
+import { buildSnapshot, parsePublicModelPage, renderFiles } from "./sync-models.mjs";
 import { buildRequest } from "./request-example.mjs";
 
 const sample = { id: "example-standard", name: "Example Standard", family: "glm", available: true };
@@ -49,6 +49,20 @@ test("namespaced IDs generate self-contained page paths", () => {
   assert.match(name, /^models\/~[a-f0-9]+\.md$/);
   assert.ok(files.get("MODEL-INDEX.md").includes(name));
   assert.ok(!files.get(name).includes("node request-example.mjs"));
+});
+
+test("the public model page yields complete identities and availability states", () => {
+  const html = [
+    '<tr data-model-row data-family="GLM" data-uncensored="false"><td><strong>Example Standard</strong><code>example-standard</code></td><td><i class="status-dot up"></i></td></tr>',
+    '<tr data-model-row data-family="Qwen" data-uncensored="true"><td><strong>Example</strong><code>example-uncensored</code></td><td><i class="status-dot down"></i></td></tr>',
+  ].join("\n");
+  const rows = parsePublicModelPage(html);
+  assert.equal(rows.length, 2);
+  assert.equal(rows[0].available, true);
+  assert.equal(rows[1].available, false);
+  assert.equal(rows[1].uncensored, true);
+  assert.throws(() => parsePublicModelPage("<html>Unavailable</html>"), /no catalog rows/);
+  assert.throws(() => parsePublicModelPage(html.replace('class="status-dot down"', "")), /unrecognized catalog row/);
 });
 
 test("request examples use the native path and parameters without embedding a key", () => {

@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const source = "https://hexapi.io/api/models";
+const publicModelPage = "https://hexapi.io/models";
+const clientName = "HEX-Model-Catalog/1.0 (+https://github.com/hexapi-io/hex-model-catalog)";
 const familyNames = {
   claude: "Claude", deepseek: "DeepSeek", gemini: "Gemini", glm: "GLM",
   gpt: "GPT", grok: "Grok", kimi: "Kimi", qwen: "Qwen",
@@ -36,6 +38,39 @@ function normalizeModel(model) {
 }
 
 const byFamilyAndId = (a, b) => a.family.localeCompare(b.family, "en") || a.id.localeCompare(b.id, "en");
+
+export function parsePublicModelPage(html) {
+  const rows = [...html.matchAll(/<tr\b([^>]*\bdata-model-row\b[^>]*)>([\s\S]*?)<\/tr>/g)];
+  if (!rows.length) throw new Error("The public HEX model page contains no catalog rows.");
+  return rows.map(([, attributes, cells]) => {
+    const family = /\bdata-family="([^"]+)"/.exec(attributes)?.[1];
+    const uncensored = /\bdata-uncensored="(true|false)"/.exec(attributes)?.[1];
+    const identity = /<td><strong>([^<]+)<\/strong><code>([^<]+)<\/code>/.exec(cells);
+    const status = /class="status-dot (up|down|degraded|unknown)"/.exec(cells)?.[1];
+    if (!family || !uncensored || !identity || !status) {
+      throw new Error("The public HEX model page has an unrecognized catalog row.");
+    }
+    return { id: identity[2], name: identity[1], family, uncensored: uncensored === "true", available: status === "up" };
+  });
+}
+
+async function fetchModelRows() {
+  const publicRequest = accept => ({
+    headers: { Accept: accept, "User-Agent": clientName },
+    redirect: "error",
+    signal: AbortSignal.timeout(20_000),
+  });
+  const response = await fetch(source, publicRequest("application/json"));
+  if (response.ok) return (await response.json()).models;
+  if (response.status !== 403) throw new Error("HEX catalog returned HTTP " + response.status + ".");
+
+  const page = await fetch(publicModelPage, publicRequest("text/html"));
+  if (!page.ok) {
+    throw new Error("HEX catalog API returned HTTP 403 and the public model page returned HTTP " + page.status + ".");
+  }
+  console.log("Reading the public HEX model page because the catalog JSON is unavailable to this client.");
+  return parsePublicModelPage(await page.text());
+}
 
 export function buildSnapshot(rows, previous) {
   if (!Array.isArray(rows) || rows.some(model => typeof model?.available !== "boolean")) {
@@ -170,11 +205,7 @@ async function run(args) {
   const capabilities = JSON.parse(await readFile(new URL("capabilities.json", import.meta.url), "utf8"));
   let snapshot = previous;
   if (!flags.has("--offline")) {
-    const response = await fetch(source, {
-      headers: { Accept: "application/json" }, redirect: "error", signal: AbortSignal.timeout(20_000),
-    });
-    if (!response.ok) throw new Error("HEX catalog returned HTTP " + response.status + ".");
-    snapshot = buildSnapshot((await response.json()).models, previous);
+    snapshot = buildSnapshot(await fetchModelRows(), previous);
   }
   const files = renderFiles(snapshot, capabilities);
   const modelDirectory = new URL("models/", import.meta.url);
