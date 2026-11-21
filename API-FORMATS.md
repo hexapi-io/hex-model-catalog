@@ -23,6 +23,8 @@ Use the [HEX API reference](https://hexapi.io/docs) to select the format support
 
 Each API request should use one model ID and one request format. Verify streaming, tool calls, reasoning parameters, and image support for that specific model before enabling them in your app.
 
+For a runnable request, open the model's page or start with the [GPT Responses example](GPT-GUIDE.md), [Claude Messages example](CLAUDE-GUIDE.md), or [Chat Completions quickstart](https://github.com/hexapi-io/hex-api-quickstart).
+
 ## Match usage to price
 
 [Live token pricing](https://hexapi.io/pricing) shows the current rates. Budget for the input and output your workflow creates. Check the usage returned with the response before comparing different models, and keep your HEX key on your own server or development machine.
