@@ -1,0 +1,88 @@
+name: Model catalog
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "23 04 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.event_name == 'pull_request' || github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: node --test catalog.test.mjs
+      - run: node sync-models.mjs --offline --check
+
+  refresh:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: hex-model-catalog-refresh
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: Refresh from the public HEX catalog
+        run: |
+          node sync-models.mjs
+          node --test catalog.test.mjs
+          node sync-models.mjs --offline --check
+      - name: Open or update a draft review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CATALOG_PR_TOKEN: ${{ secrets.CATALOG_PR_TOKEN }}
+        run: |
+          set -euo pipefail
+          git add -- MODEL-INDEX.md UNCENSORED-MODELS.md models.json models/
+          if git diff --cached --quiet; then
+            echo "The catalog already matches the public HEX feed."
+            exit 0
+          fi
+
+          branch=automation/model-catalog
+          ref="refs/heads/$branch"
+          remote_commit="$(git ls-remote origin "$ref" | cut -f1)"
+          git switch -c "$branch"
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m "Refresh HEX model catalog"
+          git push --force-with-lease="$ref:$remote_commit" origin "HEAD:$ref"
+
+          existing="$(gh pr list --base main --head "$branch" --state open --json number --jq '.[0].number // empty')"
+          if [ -n "$existing" ]; then
+            echo "Updated draft review #$existing."
+          else
+            if ! result="$(GH_TOKEN="${CATALOG_PR_TOKEN:-$GH_TOKEN}" gh pr create --draft --base main --head "$branch" \
+              --title "Refresh HEX model catalog" \
+              --body "Generated from the public HEX model catalog. Review model IDs, variant labels, and documentation before merging." 2>&1)"; then
+              if [ -n "$CATALOG_PR_TOKEN" ] || ! grep -qi 'GitHub Actions is not permitted to create or approve pull requests' <<<"$result"; then
+                printf '%s\n' "$result" >&2
+                exit 1
+              fi
+              compare="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/main...${branch}?expand=1"
+              echo "::warning::The organization restricts automatic pull request creation. Open the draft from the workflow summary."
+              printf 'The generated branch is ready. [Open a review](%s).\n' "$compare" >> "$GITHUB_STEP_SUMMARY"
+            else
+              printf '%s\n' "$result"
+            fi
+          fi
