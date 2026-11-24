@@ -35,3 +35,10 @@ Browse the [Uncensored and Abliterated lineup](UNCENSORED-MODELS.md) to compare 
 Run `node sync-models.mjs` with Node.js 22 or later to regenerate the index, the Uncensored and Abliterated list, the JSON snapshot, and individual model pages. The **Model catalog** workflow checks the live catalog daily and opens or updates a draft pull request when the generated files change. See [Contributing](CONTRIBUTING.md) for checks and capability updates.
 
 Model names belong to their respective owners.
+
+
+## Image and video models
+
+HEX supports image creation and editing, text-to-video, and reference-based video on supported models. To inspect the operations, inputs, and prices available to your account, send an authenticated `GET /v1/media/catalog` request.
+
+[Image guide](https://hexapi.io/ai-image-generator) · [Video guide](https://hexapi.io/ai-video-generator) · [Showroom](https://hexapi.io/app/chat?showroom=1)
