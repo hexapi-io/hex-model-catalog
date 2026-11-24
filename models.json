@@ -24,12 +24,6 @@
       "variant": "Standard"
     },
     {
-      "id": "claude-opus-5",
-      "name": "Claude Opus 5",
-      "family": "Claude",
-      "variant": "Standard"
-    },
-    {
       "id": "claude-opus-5-5",
       "name": "Claude Opus 5.5",
       "family": "Claude",
@@ -60,34 +54,10 @@
       "variant": "Abliterated"
     },
     {
-      "id": "deepseek-v4-pro-uncensored",
-      "name": "DeepSeek V4 Pro Uncensored",
-      "family": "DeepSeek",
-      "variant": "Uncensored"
-    },
-    {
       "id": "deepseek-v4.1-flash",
       "name": "DeepSeek V4.1 Flash",
       "family": "DeepSeek",
       "variant": "Standard"
-    },
-    {
-      "id": "deepseek-v4.1-flash-1017",
-      "name": "DeepSeek V4.1 Flash 1017",
-      "family": "DeepSeek",
-      "variant": "Standard"
-    },
-    {
-      "id": "deepseek-v4.1-flash-1017-abliterated",
-      "name": "DeepSeek V4.1 Flash 1017 Abliterated",
-      "family": "DeepSeek",
-      "variant": "Abliterated"
-    },
-    {
-      "id": "deepseek-v4.1-flash-1017-uncensored",
-      "name": "DeepSeek V4.1 Flash 1017 Uncensored",
-      "family": "DeepSeek",
-      "variant": "Uncensored"
     },
     {
       "id": "deepseek-v4.1-flash-abliterated",
@@ -96,26 +66,8 @@
       "variant": "Abliterated"
     },
     {
-      "id": "deepseek-v4.1-flash-uncensored",
-      "name": "DeepSeek V4.1 Flash Uncensored",
-      "family": "DeepSeek",
-      "variant": "Uncensored"
-    },
-    {
-      "id": "gemini-4-argon",
-      "name": "Gemini 4 Argon",
-      "family": "Gemini",
-      "variant": "Standard"
-    },
-    {
-      "id": "gemini-4-carbon",
-      "name": "Gemini 4 Carbon",
-      "family": "Gemini",
-      "variant": "Standard"
-    },
-    {
-      "id": "gemini-4-hydrogen",
-      "name": "Gemini 4 Hydrogen",
+      "id": "gemini-4-neon",
+      "name": "Gemini 4 Neon",
       "family": "Gemini",
       "variant": "Standard"
     },
@@ -142,18 +94,6 @@
       "name": "GLM 5.3 Flash Abliterated",
       "family": "GLM",
       "variant": "Abliterated"
-    },
-    {
-      "id": "glm-5.3-flash-uncensored",
-      "name": "GLM 5.3 Flash Uncensored",
-      "family": "GLM",
-      "variant": "Uncensored"
-    },
-    {
-      "id": "glm-5.3-uncensored",
-      "name": "GLM 5.3 Uncensored",
-      "family": "GLM",
-      "variant": "Uncensored"
     },
     {
       "id": "gpt-5.6-sol",
@@ -198,18 +138,6 @@
       "variant": "Standard"
     },
     {
-      "id": "grok-4.5",
-      "name": "Grok 4.5",
-      "family": "Grok",
-      "variant": "Standard"
-    },
-    {
-      "id": "grok-4.6",
-      "name": "Grok 4.6",
-      "family": "Grok",
-      "variant": "Standard"
-    },
-    {
       "id": "grok-4.7",
       "name": "Grok 4.7",
       "family": "Grok",
@@ -222,22 +150,10 @@
       "variant": "Standard"
     },
     {
-      "id": "kimi-k3.1-pro-uncensored",
-      "name": "Kimi K3.1 Pro Uncensored",
-      "family": "Kimi",
-      "variant": "Uncensored"
-    },
-    {
       "id": "qwen3.8-max",
       "name": "Qwen 3.8 Max",
       "family": "Qwen",
       "variant": "Standard"
-    },
-    {
-      "id": "qwen3.8-max-uncensored",
-      "name": "Qwen 3.8 Max Uncensored",
-      "family": "Qwen",
-      "variant": "Uncensored"
     },
     {
       "id": "qwen4-max",
@@ -246,5 +162,96 @@
       "variant": "Standard"
     }
   ],
-  "archivedModels": []
+  "archivedModels": [
+    {
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "family": "Claude",
+      "variant": "Standard"
+    },
+    {
+      "id": "deepseek-v4-pro-uncensored",
+      "name": "DeepSeek V4 Pro Uncensored",
+      "family": "DeepSeek",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "deepseek-v4.1-flash-1017",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "family": "DeepSeek",
+      "variant": "Standard"
+    },
+    {
+      "id": "deepseek-v4.1-flash-1017-abliterated",
+      "name": "DeepSeek V4.1 Flash 1017 Abliterated",
+      "family": "DeepSeek",
+      "variant": "Abliterated"
+    },
+    {
+      "id": "deepseek-v4.1-flash-1017-uncensored",
+      "name": "DeepSeek V4.1 Flash 1017 Uncensored",
+      "family": "DeepSeek",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "deepseek-v4.1-flash-uncensored",
+      "name": "DeepSeek V4.1 Flash Uncensored",
+      "family": "DeepSeek",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "family": "Gemini",
+      "variant": "Standard"
+    },
+    {
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "family": "Gemini",
+      "variant": "Standard"
+    },
+    {
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "family": "Gemini",
+      "variant": "Standard"
+    },
+    {
+      "id": "glm-5.3-flash-uncensored",
+      "name": "GLM 5.3 Flash Uncensored",
+      "family": "GLM",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "glm-5.3-uncensored",
+      "name": "GLM 5.3 Uncensored",
+      "family": "GLM",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "grok-4.5",
+      "name": "Grok 4.5",
+      "family": "Grok",
+      "variant": "Standard"
+    },
+    {
+      "id": "grok-4.6",
+      "name": "Grok 4.6",
+      "family": "Grok",
+      "variant": "Standard"
+    },
+    {
+      "id": "kimi-k3.1-pro-uncensored",
+      "name": "Kimi K3.1 Pro Uncensored",
+      "family": "Kimi",
+      "variant": "Uncensored"
+    },
+    {
+      "id": "qwen3.8-max-uncensored",
+      "name": "Qwen 3.8 Max Uncensored",
+      "family": "Qwen",
+      "variant": "Uncensored"
+    }
+  ]
 }

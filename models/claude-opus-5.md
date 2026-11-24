@@ -5,29 +5,9 @@
 | API model ID | `claude-opus-5` |
 | Model family | Claude |
 | Variant | Standard |
-| Catalog availability | Active in this snapshot |
+| Catalog availability | Archived |
 
-## First request
-
-HEX workspace format: **Anthropic-compatible Messages**.
-
-Set `HEX_API_KEY` in your terminal and run this command from the repository root.
-
-~~~sh
-node request-example.mjs claude-opus-5
-~~~
-
-## Capabilities in HEX workspace
-
-| Feature | Support |
-| --- | --- |
-| Image input | Supported |
-| Function tools | Supported |
-| Adjustable reasoning | Not enabled in this configuration |
-
-Verify settings for your client and API format before using them.
-
-HEX gateway limits: **1,000,000 context tokens**, up to **64,000 output tokens** per request. Client or provider settings can impose lower limits.
+This ID was previously listed on HEX. Check the [active model index](../MODEL-INDEX.md) for current options.
 
 [Claude Messages guide](../CLAUDE-GUIDE.md)
 
