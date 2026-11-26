@@ -45,26 +45,37 @@ export function parsePublicModelPage(html) {
   return rows.map(([, attributes, cells]) => {
     const family = /\bdata-family="([^"]+)"/.exec(attributes)?.[1];
     const uncensored = /\bdata-uncensored="(true|false)"/.exec(attributes)?.[1];
-    const identity = /<td><strong>([^<]+)<\/strong><code>([^<]+)<\/code>/.exec(cells);
-    const status = /class="status-dot (up|down|degraded|unknown)"/.exec(cells)?.[1];
-    if (!family || !uncensored || !identity || !status) {
+    let id = /\bdata-model="([^"]+)"/.exec(attributes)?.[1];
+    let name, available;
+    if (id) {
+      name = /<strong\s+data-model-name(?:\s[^>]*)?>([^<]+)<\/strong>/.exec(cells)?.[1];
+      const flag = /\bdata-available="(true|false)"/.exec(attributes)?.[1];
+      if (flag) available = flag === "true";
+    } else {
+      const identity = /<td><strong>([^<]+)<\/strong><code>([^<]+)<\/code>/.exec(cells);
+      name = identity?.[1];
+      id = identity?.[2];
+      const status = /class="status-dot (up|down|degraded|unknown)"/.exec(cells)?.[1];
+      if (status) available = status === "up";
+    }
+    if (!family || !uncensored || !id || !name || available === undefined) {
       throw new Error("The public HEX model page has an unrecognized catalog row.");
     }
-    return { id: identity[2], name: identity[1], family, uncensored: uncensored === "true", available: status === "up" };
+    return { id, name, family, uncensored: uncensored === "true", available };
   });
 }
 
-async function fetchModelRows() {
+export async function fetchModelRows(fetcher = fetch) {
   const publicRequest = accept => ({
     headers: { Accept: accept, "User-Agent": clientName },
     redirect: "error",
     signal: AbortSignal.timeout(20_000),
   });
-  const response = await fetch(source, publicRequest("application/json"));
+  const response = await fetcher(source, publicRequest("application/json"));
   if (response.ok) return (await response.json()).models;
   if (response.status !== 403) throw new Error("HEX catalog returned HTTP " + response.status + ".");
 
-  const page = await fetch(publicModelPage, publicRequest("text/html"));
+  const page = await fetcher(publicModelPage, publicRequest("text/html"));
   if (!page.ok) {
     throw new Error("HEX catalog API returned HTTP 403 and the public model page returned HTTP " + page.status + ".");
   }
