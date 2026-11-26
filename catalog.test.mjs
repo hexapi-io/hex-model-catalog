@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
-import { buildSnapshot, parsePublicModelPage, renderFiles } from "./sync-models.mjs";
+import { buildSnapshot, fetchModelRows, parsePublicModelPage, renderFiles } from "./sync-models.mjs";
 import { buildRequest } from "./request-example.mjs";
 
 const sample = { id: "example-standard", name: "Example Standard", family: "glm", available: true };
@@ -63,6 +63,27 @@ test("the public model page yields complete identities and availability states",
   assert.equal(rows[1].uncensored, true);
   assert.throws(() => parsePublicModelPage("<html>Unavailable</html>"), /no catalog rows/);
   assert.throws(() => parsePublicModelPage(html.replace('class="status-dot down"', "")), /unrecognized catalog row/);
+});
+
+test("a catalog API 403 falls back to the current model explorer markup", async () => {
+  const html = [
+    '<tr data-model-row data-model="example-standard" data-family="GLM" data-variant="standard" data-uncensored="false" data-available="true">\n' +
+      '<td class="model-explorer-identity"><strong data-model-name>Example Standard</strong><code dir="ltr">example-standard</code></td></tr>',
+    '<tr data-model-row data-model="example-uncensored" data-family="Qwen" data-variant="uncensored" data-uncensored="true" data-available="false">\n' +
+      '<td class="model-explorer-identity"><strong data-model-name>Example</strong><code dir="ltr">example-uncensored</code></td></tr>',
+  ].join("\n");
+  const requests = [];
+  const rows = await fetchModelRows(async (url, options) => {
+    requests.push([url, options.headers.Accept]);
+    return requests.length === 1 ? new Response(null, { status: 403 }) : new Response(html);
+  });
+  assert.deepEqual(requests, [["https://hexapi.io/api/models", "application/json"], ["https://hexapi.io/models", "text/html"]]);
+  assert.deepEqual(rows, [
+    { id: "example-standard", name: "Example Standard", family: "GLM", uncensored: false, available: true },
+    { id: "example-uncensored", name: "Example", family: "Qwen", uncensored: true, available: false },
+  ]);
+  assert.deepEqual(buildSnapshot(rows).models.map(model => model.id), ["example-standard"]);
+  assert.throws(() => parsePublicModelPage(html.replace('data-available="false"', 'data-available="unknown"')), /unrecognized catalog row/);
 });
 
 test("request examples use the native path and parameters without embedding a key", () => {
